@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import Card from './Card';
 import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 import axios from 'axios';
 
 const DetailsMovie = () => {
-
-	const CardSelected = styled.div`
-		background-color: blue;
-	`
 
 	const [movie, setMovie] = useState([]);
 	let id = 0;

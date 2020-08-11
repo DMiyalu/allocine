@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Card, Button } from 'react-bootstrap';
-import getImageMovieFromApi from '../../API/TMDBApi';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const MovieCard = (props) => {

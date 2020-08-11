@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import movieImage from './movieImage.jpeg';
-import { getMovieFromApi, getImageMovieFromApi, API_TOKEN } from '../../API/TMDBApi';
+import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
@@ -37,7 +36,7 @@ const SectionCard = () => {
 	}
 
 	useEffect(() => {
-		axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + API_TOKEN + '&language=fr&query=' + 'star')
+		axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_TOKEN}&language=fr&query=star`)
 		.then((response) => setListeVideos(response.data.results))
 		.catch((error) => console.log(error))
 	}, []);
