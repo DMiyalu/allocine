@@ -1,9 +1,17 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import styled from 'styled-components'
 import { Link } from "react-router-dom";
+import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 
 
 const MovieCard = (props) => {
+
+	const CardStyle = {
+		width: "max-content",
+		maxWidth: "100%",
+		height: "135px"
+	}
 
 
 	return(
@@ -11,9 +19,9 @@ const MovieCard = (props) => {
 			<Link to="/detailsMovie" >
 				<div>
 					<Card onClick={() => { localStorage.setItem("id", JSON.stringify(props.idMovie))}} >
-					 	<Card.Img style={{ width: "max-content", maxWidth:"100%", height: "100px" }} variant="top" src={props.image} alt="affiche du film"/>
+					 	<Card.Img style={CardStyle} variant="top" src={props.image} alt="affiche du film"/>
 					 	<Card.Body>
-					   		<Card.Title style={{ height:"35px" }} >{props.title} </Card.Title>
+					   		<Card.Title style={{ height:"45px" }} >{props.title} </Card.Title>
 					    	<Button variant="primary" onClick={props.detailsLink} >Voir détails</Button>
 						</Card.Body>
 					</Card>

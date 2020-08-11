@@ -1,9 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
+import { Menu } from 'semantic-ui-react';
+import { RiMovieLine } from 'react-icons/ri';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 
 const DetailsMovie = () => {
+	const Style = styled.div`
+		display: grid;
+		grid-template-column: 1fr;
+		column-gap: 5px;
+	`
+
+	const Title = styled.h2`
+		font-weight: bold;
+		font-size: 20px;
+	`
+
+	const StyleContent = styled(Style)`
+		padding: 5px 35px;
+	`
+
+	const TexteStyle = styled.div`
+		
+	`
+
+	const CardStyle = styled.img`
+		width: max-content;
+		maw-width: 100%;
+		height: 280px;
+	`
 
 	const [movie, setMovie] = useState([]);
 	let id = 0;
@@ -22,11 +51,16 @@ const DetailsMovie = () => {
 
 
 	return(
-		<>
-			<Card title={movie.title}
-				  description={movie.overview}
-				  image={movie.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(movie.poster_path)} 
-			/>
+		<>	
+			<Style>
+				<CardStyle />
+				{movie.map((movie) => 
+					<StyleContent>
+						<Title>{movie.title}</Title>
+						<TexteStyle>{movie.overview}</TexteStyle>
+					</StyleContent>
+				)}
+			</Style>
 		</>
 	)
 }
