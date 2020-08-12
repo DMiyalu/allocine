@@ -23,19 +23,26 @@ const SectionCard = () => {
 		align-content: center;
 		text-align: center;
 	`
+	const HeaderStyle = styled.div`
+		
+	`
 
 	const MainStyleSection = styled.div`
 		display: grid;
 		grid-template-column: 1fr;
 		gap: 8px;
+		padding-bottom: 10px;
 	`
 	const stylePaginate = {
-		marginLeft: "25px"
+		marginLeft: "25px",
+		textAlign: "center"
 	}
 
 
 	 const titleStyle = {
-	 	paddingLeft: "25px"
+	 	paddingLeft: "25px",
+	 	color: "blue"
+
 	 }
 
     const [offset, setOffset] = useState(0);
@@ -48,10 +55,7 @@ const SectionCard = () => {
 		const res = await axios.get(
 			'https://api.themoviedb.org/3/search/movie?api_key=' + API_TOKEN + '&language=fr&query=' + texteRecherche
 		);
-		console.log(res.data.results);
 		setListeVideos(res.data.results);
-		console.log(listeVideos);
-
 	}
 
 	useEffect(() => {
@@ -67,6 +71,7 @@ const SectionCard = () => {
 		<>
 			<MainStyleSection>
 				<div>
+				<HeaderStyle>
 					<Navbar bg="light" variant="light">
 						<Navbar.Brand href="/">
 							<IoIosMenu size={28} /><RiMovieLine size={12} />Picha
@@ -79,9 +84,9 @@ const SectionCard = () => {
 					     	<Button variant="outline-primary" onClick={() => loadMovies()} >Search</Button>
 					    </Form>
 					</Navbar>
+				</HeaderStyle>
 				</div>
 				<SectionTitle style={titleStyle} />
-				<div style={stylePaginate} ><Pagination defaultActivePage={1} totalPages={10} /></div>
 				<MainStyleCard>
 					{listeVideos.map((movie) => 
 						<Card idMovie={movie.id}
@@ -91,6 +96,7 @@ const SectionCard = () => {
 						/>
 					)}
 				</MainStyleCard>
+				<div style={stylePaginate} ><Pagination defaultActivePage={1} totalPages={10} /></div>
 			</MainStyleSection>
 		</>
 	)

@@ -1,30 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
 import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 import { Menu } from 'semantic-ui-react';
 import { RiMovieLine } from 'react-icons/ri';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import DetailsHeader from './DetailsHeader';
 
 
 const DetailsMovie = () => {
 	const Style = styled.div`
 		display: grid;
 		grid-template-column: 1fr;
-		column-gap: 5px;
+		gap: 35px;
 	`
 
 	const Title = styled.h2`
 		font-weight: bold;
-		font-size: 20px;
+		font-size: 22px;
+		color: blue;
 	`
 
-	const StyleContent = styled(Style)`
+	const StyleContent = styled.div`
 		padding: 5px 35px;
+		display: flex;
+		flex-flwo: row wrap;
+		gap: 10px;
+		height: 500px;
+		margin-top: 90px;
 	`
 
 	const TexteStyle = styled.div`
+		font-size: 16px;
 		
 	`
 
@@ -53,13 +60,21 @@ const DetailsMovie = () => {
 	return(
 		<>	
 			<Style>
-				<CardStyle />
-				{movie.map((movie) => 
-					<StyleContent>
-						<Title>{movie.title}</Title>
-						<TexteStyle>{movie.overview}</TexteStyle>
-					</StyleContent>
-				)}
+				<Link to="/" >
+					<DetailsHeader />
+				</Link>
+				
+				<StyleContent> 					
+						<>
+							<div>
+								<img src={movie.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(movie.poster_path)} alt="image film" />
+							</div>
+							<div>
+								<Title>{movie.title} </Title>
+								<TexteStyle>{movie.overview}</TexteStyle>
+							</div>
+						</>
+				</StyleContent>
 			</Style>
 		</>
 	)
