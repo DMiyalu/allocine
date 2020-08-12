@@ -60,10 +60,8 @@ const DetailsMovie = () => {
 	return(
 		<>	
 			<Style>
-				<Link to="/" >
-					<DetailsHeader />
-				</Link>
 				
+				<DetailsHeader />	
 				<StyleContent> 					
 						<>
 							<div>
