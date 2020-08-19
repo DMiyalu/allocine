@@ -6,33 +6,67 @@ export const HeaderLeft = styled.div`
 	width: 50%;
 	color: white;
 	font-weight: 800;
-	padding-top: 12px;
-	padding-left: 10px;
+	padding-top: 9px;
+	padding-left: 7px;
 	font-size: 22px;
+	box-sizing: content-box;
+	@media (max-width: 600px) {
+    	text-align: center;
+    	background-color: rgba(30, 30, 30, 0.7);
+    	width: 100%;
+    	max-width: 100%;
+    }
 `
+
 export const HeaderRight = styled.div`
 	width: 50%;
 	padding-top: 9px;
+	@media (max-width: 600px) {
+    	margin-left: 25%;
+    	box-sizing: content-box;
+    	padding-left: 2%;
+    }
 `
+
 export const InputStyle = styled(Input)`
 	background-color: rgba(250, 250, 250, 0.7);
+	border: 3px solid white;
+	@media (max-width: 600px) {
+    
+    }
 `
 
 export const FormStyle = styled(Form)`
 	display: flex;
 	margin: 0;
-	padding-right: 10px;
-
+	width: max-content;
+	max-width: 100%;
+	float: right;
+	padding-right: 20px;
+	@media (max-width: 600px) {
+ 
+    }
 `
 
 
 export const MainStyle = styled.div`
 	background-color: rgba(90, 90, 90, 0.4);
 	display: flex;
-	flex-flow: row wrap;
-	height: 60px;
+	flex-direction: row;
 	width: 100%;
+	max-content: 100%;
+	height: 60px;
 	position: fixed;
 	z-index: 9;
+
+	@media screen and (min-width: 200px) and (max-width: 640px) {
+    	display: grid;
+    	grid-template-column: 1fr;
+    	width: 100%;
+    	max-width: 100%;
+    	justify-content: center;
+    	margin: 0;
+    	height: 100px;
+    }
 `
 

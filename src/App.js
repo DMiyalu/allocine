@@ -1,5 +1,4 @@
 import React from 'react';
-import Section from './components/Section';
 import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DetailsMovie from './components/DetailsMovie';
@@ -9,14 +8,12 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  useParams
+  Route
 } from "react-router-dom";
 
 
 function App() {
-  let { id } = useParams();
-  
+
 
   return (
     <Router>

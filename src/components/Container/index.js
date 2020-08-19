@@ -3,12 +3,10 @@ import Header from '../Header';
 import Card from '../Card';
 import YouTube from 'react-youtube';
 import BlackLivesMatter from '../BlackLivesMatter';
-import { MainStyle, ContentCards, IFrame, PaginateContent, PaginateStyle, BlackLivesMatterContent } from './ContainerStyle';
+import { MainStyle, HeaderStyle, LinkStyle, ContentCards, IFrame, PaginateContent, PaginateStyle, BlackLivesMatterContent } from './ContainerStyle';
 import styled from 'styled-components';
 import { Pagination } from 'semantic-ui-react';
-import Slides from '../Slides';
 import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
-import Title from '../Title';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -38,19 +36,20 @@ const Container = () => {
 
 	return(
 		<>
-			<Header />
+			<HeaderStyle>
+				<Header />
+			</HeaderStyle>
 			<BlackLivesMatterContent>
 				<BlackLivesMatter/>
 			</BlackLivesMatterContent>
-			<Title />
 			<MainStyle>
 				<ContentCards>
 					{listeVideos.map((movie) => 
-						<Link to={`/movie/${movie.id}`} >
+						<LinkStyle to={`/movie/${movie.id}`} >
 							<Card description={movie.title}
 								image={movie.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(movie.poster_path)} 
 							/>
-						</Link>
+						</LinkStyle>
 					)}
 				</ContentCards>
 			</MainStyle>

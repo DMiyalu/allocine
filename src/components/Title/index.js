@@ -3,10 +3,6 @@ import { Style } from './style';
 
 
 const Title = () => {
-	const mainStyle = {
-		color: "blue",
-		border: "1px solid red",
-	}
 
 	return(
 		<Style>

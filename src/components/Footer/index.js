@@ -11,6 +11,7 @@ const Footer = () => {
 		padding-top: 9px;
 		font-weight: 100;
 		box-sizing: border-box;
+		width: 100%;
 	`
 
 

@@ -8,4 +8,7 @@ export const MainStyle = styled.h2`
 	text-align: center;
 	padding: 7px 5px;
 	font-size: 24px;
+	@media (max-width: 600px) {
+		margin-top: 100px;
+    }
 `
