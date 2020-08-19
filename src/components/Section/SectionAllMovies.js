@@ -9,9 +9,15 @@ import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import { IoIosMenu } from 'react-icons/io'
 import { RiMovieLine } from 'react-icons/ri';
 import { Pagination } from 'semantic-ui-react'
+import Header from '../Header';
+import Title from '../Title';
 
 
-
+const HeaderStyle = styled(Header)`
+	width: 100%;
+	margin: 0;
+	padding: 0;
+`
 
 const SectionCard = () => {
 	const MainStyleCard = styled.div`
@@ -23,9 +29,6 @@ const SectionCard = () => {
 		align-content: center;
 		text-align: center;
 	`
-	const HeaderStyle = styled.div`
-		
-	`
 
 	const MainStyleSection = styled.div`
 		display: grid;
@@ -33,6 +36,16 @@ const SectionCard = () => {
 		gap: 8px;
 		padding-bottom: 10px;
 	`
+
+	const PinterestStyle = styled.div`
+		display: flex;
+	`
+
+	const Pinterest = styled.div`
+		width: 400px;
+	`
+
+
 	const stylePaginate = {
 		marginLeft: "25px",
 		textAlign: "center"
@@ -45,14 +58,13 @@ const SectionCard = () => {
 
 	 }
 
-    const [offset, setOffset] = useState(0);
-    const [perPage, setPerPage] = useState(5);
 	const [texteRecherche, setTexteRecherche] = useState("");
 	const [listeVideos, setListeVideos] = useState([]);
 
 
+
 	const loadMovies = async() => {
-		const res = await axios.get(
+			const res = await axios.get(
 			'https://api.themoviedb.org/3/search/movie?api_key=' + API_TOKEN + '&language=fr&query=' + texteRecherche
 		);
 		setListeVideos(res.data.results);
@@ -71,31 +83,24 @@ const SectionCard = () => {
 		<>
 			<MainStyleSection>
 				<div>
-				<HeaderStyle>
-					<Navbar bg="light" variant="light">
-						<Navbar.Brand href="/">
-							<IoIosMenu size={28} /><RiMovieLine size={12} />Picha
-						</Navbar.Brand>
-						<Nav className="mr-auto">
-					     	<Nav.Link href="#home"></Nav.Link>
-					    </Nav>
-					    <Form inline>
-					     	<FormControl onChange={(e) => setTexteRecherche(e.target.value)} type="text" placeholder="Rechercher" className="mr-sm-2" />
-					     	<Button variant="outline-primary" onClick={() => loadMovies()} >Search</Button>
-					    </Form>
-					</Navbar>
-				</HeaderStyle>
+					<HeaderStyle />
+				</div>
+				<div>
+					<Title />
 				</div>
 				<SectionTitle style={titleStyle} />
-				<MainStyleCard>
-					{listeVideos.map((movie) => 
-						<Card idMovie={movie.id}
-							  title={movie.title}
-							  description={movie.overview}
-							  image={movie.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(movie.poster_path)} 
-						/>
-					)}
-				</MainStyleCard>
+				<PinterestStyle>
+					<MainStyleCard>
+						{listeVideos.map((movie) => 
+							<Card idMovie={movie.id}
+								  title={movie.title}
+								  description={movie.overview}
+								  image={movie.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(movie.poster_path)} 
+							/>
+						)}
+					</MainStyleCard>
+					<Pinterest> Pinterest </Pinterest>
+				</PinterestStyle>
 				<div style={stylePaginate} ><Pagination defaultActivePage={1} totalPages={10} /></div>
 			</MainStyleSection>
 		</>

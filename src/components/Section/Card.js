@@ -8,8 +8,8 @@ import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 const MovieCard = (props) => {
 
 	const CardStyle = {
-		width: "max-content",
-		maxWidth: "100%",
+		width: "150px",
+		maxWidth: "150px",
 		height: "135px"
 	}
 

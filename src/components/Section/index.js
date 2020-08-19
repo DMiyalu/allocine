@@ -9,16 +9,14 @@ import {
 const Section = () =>  {
 
 	const MyStyle = styled.section`
-		
 	`
+
 
 	return(
 		<>
-			<Router>	
-				<MyStyle>
-					<SectionAllMovies />
-				</MyStyle>
-			</Router>
+			<MyStyle>
+				<SectionAllMovies />
+			</MyStyle>
 		</>
 	)
 }
