@@ -3,12 +3,13 @@ import Header from '../Header';
 import Card from '../Card';
 import YouTube from 'react-youtube';
 import BlackLivesMatter from '../BlackLivesMatter';
-import { MainStyle, HeaderStyle, LinkStyle, ContentCards, IFrame, PaginateContent, PaginateStyle, BlackLivesMatterContent } from './ContainerStyle';
+import { MainStyle, CategoriesItem, Categories, HeaderStyle, LinkStyle, ContentCards, IFrame, PaginateContent, PaginateStyle, BlackLivesMatterContent } from './ContainerStyle';
 import styled from 'styled-components';
 import { Pagination } from 'semantic-ui-react';
 import { API_TOKEN, getImageMovieFromApi } from '../../API/TMDBApi';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+
 
 
 const Container = () => {
@@ -42,6 +43,12 @@ const Container = () => {
 			<BlackLivesMatterContent>
 				<BlackLivesMatter/>
 			</BlackLivesMatterContent>
+			<Categories>
+				<CategoriesItem>Series</CategoriesItem>
+				<CategoriesItem>Populaires</CategoriesItem>
+				<CategoriesItem>Top 10</CategoriesItem>
+				<CategoriesItem>Annonces</CategoriesItem>
+			</Categories>
 			<MainStyle>
 				<ContentCards>
 					{listeVideos.map((movie) => 

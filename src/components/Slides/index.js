@@ -20,13 +20,7 @@ const Slides = () => {
 
 	return(
 		<>
-			<Slider duration={3000} autoplay >
-				{slidesList.map((slide, index) => <CardSlide key={index}>
-						<CardSlideText> {slide.title} </CardSlideText>
-						<CardSlideImg src={slide.poster_path===null ? 'https://blog.rahulbhutani.com/wp-content/uploads/2020/05/Screenshot-2018-12-16-at-21.06.29.png':getImageMovieFromApi(slide.poster_path)} />
-					</CardSlide>
-				)}
-			</Slider>
+			
 		</>
 	)
 }

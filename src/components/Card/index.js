@@ -12,7 +12,8 @@ const Card = (props) => {
 				</Img>
 				<ImgDescription>
 					<p>
-						{props.description}
+						{props.description} <br></br>
+						<span style={{ color:"red" }} > N Likes </span>
 					</p>
 				</ImgDescription>
 			</MainStyle>

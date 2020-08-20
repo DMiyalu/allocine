@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Container, Row, Col, Form, Input, Button } from 'reactstrap';
+import { Link } from "react-router-dom";
 
 
 export const HeaderLeft = styled.div`
@@ -20,7 +21,7 @@ export const HeaderLeft = styled.div`
 
 export const HeaderRight = styled.div`
 	width: 50%;
-	padding-top: 9px;
+	padding-top: 12px;
 	@media (max-width: 600px) {
     	margin-left: 25%;
     	box-sizing: content-box;
@@ -30,9 +31,11 @@ export const HeaderRight = styled.div`
 
 export const InputStyle = styled(Input)`
 	background-color: rgba(250, 250, 250, 0.7);
-	border: 3px solid white;
-	@media (max-width: 600px) {
-    
+	border: 2px solid yellow;
+	width: 400px;
+	min-width: 300px;
+	@media screen and (min-width: 200px) and (max-width: 640px) {
+    	width: 200px;
     }
 `
 
@@ -70,3 +73,11 @@ export const MainStyle = styled.div`
     }
 `
 
+export const LinkStyle = styled(Link)`
+	color: white;
+`
+
+export const ButtonStyle = styled(Button)`
+	color: yellow;
+	font-weight: 600;
+`

@@ -1,23 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Main, Copyright, About, Twitter, Instagram, Pinterest, Facebook, Infos, InfosTitle, ButtonStyle, InfosSocialLinks, Newsletter, NewsletterText, InputStyle, FormStyle } from './style';
 
 const Footer = () => {
-
-	const Style = styled.div`
-		background: rgba(150, 150, 150, 1.00);
-		text-align: center;
-		height: 40px;
-		color: white;
-		padding-top: 9px;
-		font-weight: 100;
-		box-sizing: border-box;
-		width: 100%;
-	`
 
 
 	return (
 		<>
-			<Style>Copyright &copy 2020, Picha.</Style>
+			<Main>
+				<About>
+					<Infos>
+						<InfosTitle>Bienvenue chez Picha</InfosTitle>
+						<Newsletter>
+							<NewsletterText>
+								Inscrivez-vous à notre newslleter pour voir les annonces sur tous les films.
+							</NewsletterText>
+							<FormStyle>
+								<InputStyle placeholder="E-mail" />
+								<ButtonStyle>Envoyer</ButtonStyle>
+							</FormStyle>
+						</Newsletter>
+						<InfosSocialLinks>
+							<Facebook />
+							<Twitter />
+							<Instagram />
+							<Pinterest />
+						</InfosSocialLinks> 
+					</Infos>
+				</About>
+				<Copyright>Copyright &copy 2020, Picha.</Copyright>
+			</Main>
 		</>
 	)
 }

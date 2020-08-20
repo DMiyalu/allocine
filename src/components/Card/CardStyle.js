@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const ImgDescription = styled.div`
 	color: rgba(10, 10, 10, 0.8);
 	font-size: 18px;
+	text-align: center;
+	color: white;
 	&:hover {
 		text-decoration: none;
 		color: blue;
@@ -13,7 +15,7 @@ export const ImgDescription = styled.div`
 
 export const MainStyle = styled.div`
 	border-radius: 3px;
-	width: 190px;
+	width: 240px;
 	height: 220px;
 	display: flex;
 	flex-direction: column;
@@ -29,7 +31,7 @@ export const MainStyle = styled.div`
 	}
 
 	&:hover {
-		width: 210px;
+		box-shadow: 1px 3px 10px rgba(250, 250, 250, 1.00);
 	}
 `
 

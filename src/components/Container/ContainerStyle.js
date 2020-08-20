@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const MainStyle = styled.div`
 	padding: 5px 25px;
+	background-color: rgba(10, 10, 10, 1.00);
 	@media (max-width: 600px) {
     	
     }
@@ -12,12 +13,12 @@ export const MainStyle = styled.div`
 
 export const ContentCards = styled.div`
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 10px;
 	row-gap: 3px;
 	margin: 0;
 	box-sizing: content-box;
-
+	margin-top: 30px;
 	@media (max-width: 600px) {
     	display: flex;
     	flex-direction: column;
@@ -65,4 +66,30 @@ export const HeaderStyle = styled.div																																											
     	width: max-content;
     	max-width: 100%;
     }
+`
+
+export const Categories = styled.div`
+	background-color: rgba(255,255,0, 0.8);
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 100px;
+`
+
+export const CategoriesItem = styled.div`
+	border: 1px solid black;
+	border-radius: 3px;
+	height: 38px;
+	width: 100px;
+	text-align: center;
+	padding-top: 8px;
+	&:hover {
+		border: none;
+		background-color: rgba(90, 90, 90, 0.9);
+		font-weight: 500;
+		color: yellow;
+		cursor: pointer;
+	}
 `
